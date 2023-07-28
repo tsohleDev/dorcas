@@ -42,9 +42,27 @@ Clone this repository to your local machine using the following command:
         docker ps
         # you should see an image 'to-dockers'
     ```
-4. stop and delete the image
+4. stop and delete the container
     ```bash
         # -f is to force the delete even if the container is running
         # the parameter is the id of the container that you got when you ran the 'docker ps' command
         docker rm -f <id>
     ```
+### Persist Data
+> Lets mount a volume from the host to the sql db file
+
+1. Create the named volume **todo-db**
+
+```bash
+    docker volume create todo-db
+    docker volume inspect todo-db
+```
+
+2. Create a container with the volume mounted the sqlite folder `/etc/todos`
+
+```bash
+    # -v raised to allow mounting parameter 'volume_name:container_path'
+    docker run -dp 127.0.0.1:3000:3000 -v todo-db:/etc/todos to-dockers
+```
+
+Now insert some todos into your app stop and remove your container spin up again while mounting the db to the volume again. It should persist the data.
