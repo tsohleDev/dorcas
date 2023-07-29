@@ -48,14 +48,14 @@ Clone this repository to your local machine using the following command:
         # the parameter is the id of the container that you got when you ran the 'docker ps' command
         docker rm -f <id>
     ```
-### Persist Data
+### Named Volume Mounting
 > Lets mount a volume from the host to the sql db file
 
 1. Create the named volume **todo-db**
 
 ```bash
-    docker volume create todo-db
-    docker volume inspect todo-db
+    docker volume create todo-db # Create volume
+    docker volume inspect todo-db # Check the volume's metadata
 ```
 
 2. Create a container with the volume mounted the sqlite folder `/etc/todos`
@@ -66,3 +66,21 @@ Clone this repository to your local machine using the following command:
 ```
 
 Now insert some todos into your app stop and remove your container spin up again while mounting the db to the volume again. It should persist the data.
+
+### Bind Mounting
+> No to "It works on my local machine', Yes to "It works in the container"
+
+Because we are in `development` mode, we wont be using our docker file to build an image, but rather a base image with node only and **bind** the host's ```pwd``` to the container... say in ```/src```
+
+#### Run a container bound to the host
+
+```bash
+    docker run -dp 127.0.0.1:3000:3000 / 
+    -w /app / 
+    --mount type=bind,src="$(pwd)",target=/src / 
+    node:18-alpine / 
+    sh -c "yarn install && yarn run dev"
+```
+
+We raised the flag `-w` to specify the working directory, `--mount` with type bind to do the binding, then run the `sh` script to install the dependencies and to run the script **dev** which runs the server using [nodemon](https://www.npmjs.com/package/nodemon). Happy coding!
+
