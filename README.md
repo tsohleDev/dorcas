@@ -1,9 +1,9 @@
-# To Docker
+# Dorcas
 > Express & SQLite To-Do App with Docker
 
 ## Introduction
 
-To Dockers is a learning repository designed to help developers understand the concepts of Docker by building and deploying a simple To-Do web application. The project utilizes the Express.js framework for the backend and SQLite as the database. Through this repository, you will gain hands-on experience creating Docker images, containers, volumes, and Docker Compose, enabling you to efficiently manage your app's development, deployment, and local environment setup.
+Dorcas is a learning repository designed to help developers understand the concepts of Docker by building and deploying a simple To-Do web application. The project utilizes the Express.js framework for the backend and SQLite as the database. Through this repository, you will gain hands-on experience creating Docker images, containers, volumes, and Docker Compose, enabling you to efficiently manage your app's development, deployment, and local environment setup.
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ To Dockers is a learning repository designed to help developers understand the c
 Clone this repository to your local machine using the following command:
 
    ```bash
-   git clone https://github.com/tsohledev/toDockers.git
+   git clone https://github.com/tsohledev/dorcas.git
    cd toDockers
    ```
 ## Dockerize 
