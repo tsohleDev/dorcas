@@ -1,7 +1,7 @@
 FROM node:alpine
 
 # Set working directory
-WORKDIR /tsohle/toDocker
+WORKDIR /tsohle/to-dockers
 
 # Copy all file to working directory
 COPY . .
