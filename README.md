@@ -10,6 +10,7 @@ To Dockers is a learning repository designed to help developers understand the c
 ### Prerequisites
 
 - [Docker](https://www.docker.com/get-started) must be installed on your system.
+- [Docker Compose](https://docs.docker.com/compose/install/) also should be installed
 - [DockerHub](https://hub.docker.com/) Have an account
 - **Bash**. We will be running all our scripts using bash
 
@@ -164,3 +165,18 @@ Check also in the mysql container if the data is written
     mysql> select * from todo_items;
 ```
 
+### Docker Compose
+> Lests ease the process of configuring the containers
+
+1. You must have the [docker-compose.yaml](./docker-compose.yaml)
+
+2. Spin up the stack 
+
+```bash
+    # up command specifies that we run all the services
+    docker compose up -d
+```
+
+You can check if the services are running by the `docker compose logs -f`
+
+All is well? shut it down now `docker compose down`
